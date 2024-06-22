@@ -1,15 +1,12 @@
-import React from "react";
 import ItemCarrinhoSuspenso from "@/components/CarrinhoSuspenso/ItemCarrinhoSuspenso";
 import ItemCarrinho from "@/components/ItemCarrinho";
 import { useLocation } from "react-router-dom";
+import { useCartContext } from "../../hooks/useCartContext";
 
-const ListaProdutosCarrinho = ({
-  carrinho,
-  adicionarProduto,
-  removerProduto,
-  removerProdutoCarrinho,
-}) => {
+const ListaProdutosCarrinho = () => {
   const location = useLocation();
+  const { carrinho } = useCartContext();
+
   return (
     <ul className="list-unstyled">
       {carrinho.length === 0 ? (
@@ -20,17 +17,11 @@ const ListaProdutosCarrinho = ({
             <ItemCarrinho
               key={itemCarrinho.id}
               itemCarrinho={itemCarrinho}
-              adicionarProduto={adicionarProduto}
-              removerProduto={removerProduto}
-              removerProdutoCarrinho={removerProdutoCarrinho}
             />
           ) : (
             <ItemCarrinhoSuspenso
               key={itemCarrinho.id}
               itemCarrinho={itemCarrinho}
-              adicionarProduto={adicionarProduto}
-              removerProduto={removerProduto}
-              removerProdutoCarrinho={removerProdutoCarrinho}
             />
           );
         })

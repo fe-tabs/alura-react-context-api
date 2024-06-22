@@ -2,9 +2,11 @@ import React from "react";
 import ValorFormatado from "@/components/ValorFormatado";
 import Botao from "@/components/Botao";
 import { useNavigate } from "react-router-dom";
+import { useCartContext } from "@/hooks/useCartContext";
 
-const TotalCarrinho = ({ valorTotalCarrinho }) => {
+const TotalCarrinho = () => {
   const navigate = useNavigate();
+  const { valorTotalCarrinho } = useCartContext()
 
   return (
     <div className="d-flex flex-column gap-3">

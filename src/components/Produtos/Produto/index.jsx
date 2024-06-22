@@ -1,6 +1,7 @@
 import React from "react";
 import Botao from "@/components/Botao";
 import { formatadorMoeda } from "@/utils/formatadorMoeda";
+import { useCartContext } from "@/hooks/useCartContext";
 
 const Produto = ({
   src,
@@ -8,9 +9,10 @@ const Produto = ({
   alt,
   titulo,
   descricao,
-  preco,
-  adicionarProduto,
+  preco
 }) => {
+  const { adicionarProduto } = useCartContext();
+
   return (
     <div className="col-12 col-md-6 col-xxl-4 pb-4">
       <div className="card">

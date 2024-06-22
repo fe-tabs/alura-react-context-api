@@ -2,9 +2,14 @@ import React from "react";
 import Botao from "@/components/Botao";
 import Titulo from "@/components/Titulo";
 import { useLocation } from "react-router-dom";
+import { useCartContext } from "@/hooks/useCartContext";
 
-const Quantidade = ({ itemCarrinho, adicionarProduto, removerProduto }) => {
+const Quantidade = ({ itemCarrinho }) => {
   const location = useLocation();
+  const {
+    adicionarProduto,
+    removerProduto
+  } = useCartContext();
 
   return (
     <div

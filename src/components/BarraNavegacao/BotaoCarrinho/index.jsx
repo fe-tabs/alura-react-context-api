@@ -1,9 +1,11 @@
 import React from "react";
 
 import imagemCarrinho from "/assets/cart.svg";
+import { useCartContext } from "@/hooks/useCartContext";
 
-const BotaoCarrinho = ({ className, quantidadeProdutos }) => {
+const BotaoCarrinho = ({ className }) => {
   const classesComuns = "btn ms-3";
+  const { quantidadeProdutos } = useCartContext();
 
   return (
     <button
